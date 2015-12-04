@@ -1,0 +1,54 @@
+extends layout
+
+block content
+    // Fixed navbar
+    nav.navbar.navbar-inverse.navbar-fixed-top
+        .container
+            .navbar-header
+                a.navbar-brand(href='#') Project name
+            #navbar.navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li.active
+                        a(href='#') Home
+                    li
+                        a(href='#about') About
+                    li
+                        a(href='#contact') Contact
+                    li.dropdown
+                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                            | Dropdown
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='#') Action
+                            li
+                                a(href='#') Another action
+                            li
+                                a(href='#') Something else here
+                            li.divider(role='separator')
+                            li.dropdown-header Nav header
+                            li
+                                a(href='#') Separated link
+                            li
+                                a(href='#') One more separated link
+                ul.nav.navbar-nav.navbar-right
+                    li
+                        a(href='../navbar/') Default
+                    li.active
+                        a(href='../navbar-static-top/') Static top
+                    li
+                        a(href='./')
+                            | Fixed top
+                            span.sr-only (current)
+            // /.nav-collapse
+    .container
+        // Main component for a primary marketing message or call to action
+        .jumbotron
+            h1 Navbar example
+            p
+                | This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
+            p To see the difference between static and fixed top navbars, just scroll.
+            p
+                a.btn.btn-lg.btn-primary(href='../../components/#navbar', role='button') View navbar docs »
+    // /container
+    //

@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title CyklotrenWWW
+
+    //Main CSS
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    //Material bootstrap CSS
+    link(rel='stylesheet', href='/bootstrap-material-design-master/dist/css/bootstrap-material-design.css')
+    link(rel='stylesheet', href='/bootstrap-material-design-master/dist/css/ripples.css')
+
+  body
+    block content
+
+  //BOTTOM MAIN SCRIPTS
+  //JQUERY
+  script(src='/jquery/dist/jquery.js')
+  //BOOTSTRAP
+  script(src='bootstrap-sass/assets/javascripts/bootstrap.js')
+  //MATERIAL BOOTSTRAP
+  script(src='bootstrap-material-design-master/dist/js/material.js')
+  script(src='bootstrap-material-design-master/dist/js/ripples.js')
+  //INIT MATERIAL DESIGN
+  script.
+    $.material.init()
