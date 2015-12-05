@@ -2,7 +2,7 @@ extends layout
 
 block content
 
-  .container#IDX(data-path='index')
+  //.container#IDX(data-path='index')
     // Main component for a primary marketing message or call to action
     .jumbotron
       h1 Navbar example
@@ -11,5 +11,12 @@ block content
       p To see the difference between static and fixed top navbars, just scroll.
       p
         a.btn.btn-lg.btn-primary(href='../../components/#navbar', role='button') View navbar docs »
-  // /container
-  //
+
+  .container
+    if (!user)
+      a(href="/logowanie") Login
+      br
+      a(href="/rejestracja") Register
+    if (user)
+      p You are currently logged in as #{user.username}
+      a(href="/logout") Logout
