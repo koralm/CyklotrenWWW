@@ -5,10 +5,16 @@ body
   padding-top: 70px
 
 //Center navbar
-@media (min-width: 768px)
-  .navbar .navbar-nav
-    display: inline-block
-    float: none
-    vertical-align: top
-  .navbar .navbar-collapse
-    text-align: center
+  @media (min-width: 768px)
+    .navbar .navbar-nav
+      display: inline-block
+      float: none
+      vertical-align: top
+    .navbar .navbar-collapse
+      text-align: center
+
+@media only screen and (max-width: 800px)
+  .divider-vertical
+    height: 0
+    border-left: 0
+    border-right: 0
