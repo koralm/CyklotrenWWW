@@ -145,8 +145,6 @@ nav#icononav {
 
 /* -------------------------------------------------- */
 @media (max-width: 767px), (max-height: 670px) {
-  .container {
-    padding: 20px 20px 0 100px; }
   nav#icononav {
     width: 80px;
     min-height: 400px; }
@@ -6117,5 +6115,8 @@ body {
 
 .login {
   display: inline-block; }
+
+.container.add {
+  margin-left: 20%; }
 
 /*# sourceMappingURL=style.css.map */

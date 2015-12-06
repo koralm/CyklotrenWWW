@@ -20,11 +20,13 @@ html
   body(data-path='<%= path %>')
     //NAVBAR
     include parts/navbar
-    //FLASH ERRORS
+    if (!user)
     .container
+    if (user)
+    .container.add
+      //FLASH ERRORS
       include errors/error_flash
     //CONTENT
-    .container
     block content
 
   //BOTTOM MAIN SCRIPTS
