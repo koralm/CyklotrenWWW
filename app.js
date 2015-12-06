@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var flash = require('connect-flash')
+var flash = require('express-flash')
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -45,6 +45,14 @@ app.use(session({
   saveUninitialized: true,
   cookie: { maxAge: 60000 }
 }))
+
+app.use(flash());
+app.use(function(req, res, next){
+  res.locals.success_messages = req.flash('success_messages');
+  res.locals.error_messages = req.flash('error_messages');
+  next();
+});
+
 
 app.use(passport.initialize());
 app.use(passport.session());

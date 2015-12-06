@@ -1,22 +1,21 @@
 extends layout
 
 block content
-
-  //.container#IDX(data-path='index')
+  .container#IDX(data-path='index')
     // Main component for a primary marketing message or call to action
-    .jumbotron
-      h1 Navbar example
-      p
-        | This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.
-      p To see the difference between static and fixed top navbars, just scroll.
-      p
-        a.btn.btn-lg.btn-primary(href='../../components/#navbar', role='button') View navbar docs »
-
-  .container
     if (!user)
-      a(href="/logowanie") Login
-      br
-      a(href="/rejestracja") Register
+      .jumbotron.text-center
+        h1 Witaj
+        p
+          | Witamy w zdalnym stytemie treningowym urządzenia Cyklotren
+        p Jeśli posiadasz już konto w naszym systemie zaloguj się, jeśli nie zapraszamy do rejestracji
+        p.text-right
+          a.btn.btn-lg.btn-primary(href='../../components/#navbar', role='button') Czytaj więcej »
     if (user)
-      p You are currently logged in as #{user.username}
-      a(href="/logout") Logout
+      .jumbotron.text-center
+        h1 Witaj #{user.username}
+        p
+          | Witamy w zdalnym stytemie treningowym urządzenia Cyklotren
+        p Proszę rozpocznij czat z ternerem lub obejrzyj dane ze swoich ćwiczeń
+        p.text-right
+          a.btn.btn-lg.btn-primary(href='../../components/#navbar', role='button') Pomoc »

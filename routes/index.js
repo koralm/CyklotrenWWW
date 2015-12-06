@@ -4,9 +4,6 @@ var Account = require('../models/account');
 
 var router = express.Router();
 
-
-
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.locals.path = req.path;
@@ -15,30 +12,38 @@ router.get('/', function(req, res, next) {
 });
 
 
-//Logowanie IN
+//Logowanie
+//GET
 router.get('/logowanie', function(req, res, next) {
-  res.render('logowanie', { title: 'Logowanie', user : req.user,  message: req.flash('message') });
+  res.render('subsites/logowanie', {
+    title: 'Logowanie',
+    user : req.user,});
 });
 
-router.post('/logowanie', passport.authenticate('local', { successRedirect: '/',
-  failureRedirect: '/logowanie', failureFlash: "dupa weza"  }))
+//POST
+router.post('/logowanie', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/logowanie',
+  failureFlash: "Zły Login",
+  successFlash: 'Dobry Login'
+}));
 
 //Wylogowanie OUT
-//  app.get('/logout', function(req, res) {
-//    req.logout();
-//    res.redirect('/');
-//  });
+  router.get('/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+  });
 
 
 //Rejestracja
 router.get('/rejestracja', function(req, res, next) {
-  res.render('rejestracja', { title: 'rejestracja' });
+  res.render('subsites/rejestracja', { title: 'rejestracja' });
 });
 
 router.post('/rejestracja', function(req, res) {
   Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
     if (err) {
-      return res.render('register', { account : account });
+      return res.render('subsites/register', { account : account });
     }
 
     passport.authenticate('local')(req, res, function () {
@@ -48,9 +53,16 @@ router.post('/rejestracja', function(req, res) {
 });
 
 
-
 router.get('/informacje', function(req, res, next) {
-  res.render('informacje', { title: 'informacje' });
+  res.render('subsites/informacje', {
+    title: 'informacje',
+    user : req.user});
+});
+
+router.get('/ustawienia', function(req, res, next) {
+  res.render('subsites/ustawienia', {
+    title: 'ustawienia',
+    user : req.user});
 });
 
 module.exports = router;

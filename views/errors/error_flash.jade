@@ -1,0 +1,14 @@
+- if (messages.success=='Dobry Login')
+    .message.success
+        .alert.alert-dismissible.alert-success
+            button.close(type='button', data-dismiss='alert') ×
+            h4 Witaj #{user.username}
+            p
+                | Logowanie powiodło się
+- if (messages.error=='Zły Login')
+    .message.error
+        .alert.alert-dismissible.alert-danger
+            button.close(type='button', data-dismiss='alert') ×
+            h4 Złe dane
+            p
+                | Podałeś złe dane do logowania, sprawdź je i spróbuj ponownie

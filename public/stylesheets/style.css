@@ -5872,4 +5872,7 @@ body {
     border-left: 0;
     border-right: 0; } }
 
+.login {
+  display: inline-block; }
+
 /*# sourceMappingURL=style.css.map */
