@@ -3,6 +3,11 @@ html
   head
     title CyklotrenWWW
 
+    //Menu
+    link(rel='stylesheet', href='icons/style.css')
+    //link(rel='stylesheet', href='stylesheets/menu/icononav.css')
+    link#theme-toggle(rel='stylesheet', href='public/css/skins/flat.css')
+
     //Main CSS
     link(rel='stylesheet', href='/stylesheets/style.css')
 
@@ -10,11 +15,7 @@ html
     link(rel='stylesheet', href='/bootstrap-material-design-master/dist/css/bootstrap-material-design.css')
     link(rel='stylesheet', href='/bootstrap-material-design-master/dist/css/ripples.css')
 
-    //Nexus_menu
-    link(rel='stylesheet', type='text/css', href='stylesheets/nexus_menu/normalize.css')
-    //link(rel='stylesheet', type='text/css', href='stylesheets/nexus_menu/demo.css')
-    link(rel='stylesheet', type='text/css', href='stylesheets/nexus_menu/component.css')
-    script(src='javascripts/nexus_menu/modernizr.custom.js')
+
 
   body(data-path='<%= path %>')
     //NAVBAR
@@ -34,11 +35,8 @@ html
   //MATERIAL BOOTSTRAP
   script(src='bootstrap-material-design-master/dist/js/material.js')
   script(src='bootstrap-material-design-master/dist/js/ripples.js')
-  //Nexus menu
-  script(src='javascripts/nexus_menu/classie.js')
-  script(src='javascripts/nexus_menu/gnmenu.js')
-  script.
-    new gnMenu(document.getElementById('gn-menu'));
+  //Menu
+  script(src='javascripts/scripts.min.js')
   //INIT MATERIAL DESIGN
   script.
     $.material.init()

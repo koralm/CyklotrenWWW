@@ -1,0 +1,38 @@
+
+// VARIABLES
+/* -------------------------------------------------- */
+
+$brand-primary:         #88C425 !default;
+
+
+// SKIN
+/* -------------------------------------------------- */
+
+nav#icononav {
+	.user {
+		.alert {
+			background-color: $brand-primary;
+		}
+	}
+	ul.links {
+		& li {
+			& a {
+				&.active {
+					border-color: $brand-primary;
+					&:hover {
+						border-color: $brand-primary;
+					}
+					& span {
+						color: $brand-primary;
+					}
+				}
+				&:hover {
+					& span {
+						color: rgba($brand-primary,1);
+					}
+				}
+			}
+		}
+	}
+}
+

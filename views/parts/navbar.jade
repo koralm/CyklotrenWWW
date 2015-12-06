@@ -40,3 +40,26 @@ if (user)
                         a(href='ustawienia') Ustawienia
                     li#log
                         a(href="/logout") Wyloguj się
+        nav#icononav
+            a.user(href='#')
+                img.delay(src='public/img/user.jpg', alt='Placeholder')
+                .alert 3
+            ul.links
+                li
+                    a.delay.active(href='#')
+                        span.delay.icon-gauge
+                        |  Board
+                li
+                    span.alert 1
+                    a.delay(href='#')
+                        span.delay.icon-newspaper
+                        |  Projects
+                li
+                    a.delay(href='#')
+                        span.delay.icon-cog2
+                        |  Settings
+            ul.links.lower
+                li
+                    a.delay(href='#')
+                        span.delay.icon-power
+                        |  Logout
