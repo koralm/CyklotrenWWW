@@ -45,18 +45,17 @@ if (user)
                 img.delay(src='images/av1.png', alt='Placeholder')
             ul.links
                 li
-                    a.delay.active(href='#')
+                    a.delay(href='#')
                         span.delay.icon-gauge
-                        |  Wyniki
+                        |  Zestawienie
+                li
+                    a.delay(href='/wykresy')
+                        span.delay.icon-chart-line
+                        |  Wykresy
                 li
                     a.delay(href='#')
                         span.delay.icon-calendar
                         |  Treningi
-                li
-                    span
-                    a.delay(href='#')
-                        span.delay.icon-newspaper
-                        |  Ustawienia
                 li
                     a.delay(href='#')
                         span.delay.icon-help

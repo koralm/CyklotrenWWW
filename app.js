@@ -38,7 +38,7 @@ app.use(require('node-sass-middleware')({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-// passport config
+// session config
 app.use(session({
   secret: 'keyboard cat',//,
   resave: false,
@@ -46,6 +46,7 @@ app.use(session({
   cookie: { maxAge: 60000 }
 }))
 
+// flash cpnfig
 app.use(flash());
 app.use(function(req, res, next){
   res.locals.success_messages = req.flash('success_messages');
@@ -53,10 +54,12 @@ app.use(function(req, res, next){
   next();
 });
 
-
+//passport config
 app.use(passport.initialize());
 app.use(passport.session());
+
 var Account = require('./models/account');
+
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());

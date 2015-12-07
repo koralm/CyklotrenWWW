@@ -2,6 +2,7 @@ doctype html
 html
   head
     title CyklotrenWWW
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
 
     //Menu
     link(rel='stylesheet', href='icons/style.css')
@@ -15,8 +16,6 @@ html
     link(rel='stylesheet', href='/bootstrap-material-design-master/dist/css/bootstrap-material-design.css')
     link(rel='stylesheet', href='/bootstrap-material-design-master/dist/css/ripples.css')
 
-
-
   body(data-path='<%= path %>')
     //NAVBAR
     include parts/navbar
@@ -29,16 +28,21 @@ html
     //CONTENT
     block content
 
+
+
   //BOTTOM MAIN SCRIPTS
   //JQUERY
-  script(src='/jquery/dist/jquery.js')
+  script(src='jquery/dist/jquery.js')
+  //HIGHCHARTS
+  script(src='javascripts/Highcharts-4.1.9/js/highcharts.js')
+  script(src='javascripts/Highcharts-4.1.9/js/modules/exporting.js')
   //BOOTSTRAP
   script(src='bootstrap-sass/assets/javascripts/bootstrap.js')
   //MATERIAL BOOTSTRAP
   script(src='bootstrap-material-design-master/dist/js/material.js')
   script(src='bootstrap-material-design-master/dist/js/ripples.js')
   //Menu
-  script(src='javascripts/scripts.min.js')
+  script(src='javascripts/menu/scripts.min.js')
   //INIT MATERIAL DESIGN
   script.
     $.material.init()
@@ -50,3 +54,5 @@ html
         $('#' + path).addClass('active');
       });
     });
+
+  block scripts_bottom

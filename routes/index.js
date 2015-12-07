@@ -11,6 +11,17 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'CyklotrenWWW', user : req.user});
 });
 
+//middleware
+var needsGroup = function(group) {
+  return function(req, res, next) {
+    if (req.user && req.user.group === group)
+      next();
+    else
+      req.logout();
+      res.send(401, 'Unauthorizedxx');
+  };
+};
+
 
 //Logowanie
 //GET
@@ -21,12 +32,16 @@ router.get('/logowanie', function(req, res, next) {
 });
 
 //POST
-router.post('/logowanie', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/logowanie',
-  failureFlash: "Zły Login",
-  successFlash: 'Dobry Login'
-}));
+router.post('/logowanie',
+    passport.authenticate('local'),
+    needsGroup('user'), function (req, res) {
+      res.redirect('/');
+    /*passport.authenticate('local', {
+      successRedirect: '/',
+      failureRedirect: '/logowanie',
+      failureFlash: "Zły Login",
+      successFlash: 'Dobry Login'
+})*/})
 
 //Wylogowanie OUT
   router.get('/logout', function(req, res) {
@@ -41,7 +56,7 @@ router.get('/rejestracja', function(req, res, next) {
 });
 
 router.post('/rejestracja', function(req, res) {
-  Account.register(new Account({ username : req.body.username }), req.body.password, function(err, account) {
+  Account.register(new Account({ username : req.body.username, group: req.body.group}), req.body.password, function(err, account) {
     if (err) {
       return res.render('subsites/register', { account : account });
     }
@@ -62,6 +77,12 @@ router.get('/informacje', function(req, res, next) {
 router.get('/ustawienia', function(req, res, next) {
   res.render('subsites/ustawienia', {
     title: 'ustawienia',
+    user : req.user});
+});
+
+router.get('/wykresy', function(req, res, next) {
+  res.render('subsites/wykresy', {
+    title: 'wykresy',
     user : req.user});
 });
 
